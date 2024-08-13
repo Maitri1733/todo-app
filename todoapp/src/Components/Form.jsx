@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Styles from "./form.module.css";
 
 export default function Form({ todos, setTodos }) {
   const [todo, setTodo] = useState("");
@@ -9,13 +10,17 @@ export default function Form({ todos, setTodos }) {
     setTodo("");
   }
   return (
-    <form onSubmit={handleSubmit}>
+    <form className={Styles.todoform} onSubmit={handleSubmit}>
       <input
+        className={Styles.moderInput}
         type="text"
         value={todo}
         onChange={(e) => setTodo(e.target.value)}
+        placeholder="Enter Todo Items..."
       ></input>
-      <button type="submit">Submit</button>
+      <button className={Styles.moderButton} type="submit">
+        Submit
+      </button>
     </form>
   );
 }
